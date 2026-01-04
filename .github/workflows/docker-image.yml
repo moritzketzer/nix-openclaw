@@ -28,16 +28,11 @@ jobs:
       - name: Resolve upstream version
         id: version
         run: |
-          rev=$(python - <<'PY'
-          import re
-          from pathlib import Path
-          text = Path('nix/sources/clawdbot-source.nix').read_text()
-          match = re.search(r'rev\s*=\s*"([^"]+)"', text)
-          if not match:
-              raise SystemExit('rev not found in nix/sources/clawdbot-source.nix')
-          print(match.group(1))
-PY
-          )
+          rev=$(rg -o 'rev\s*=\s*"[^"]+"' nix/sources/clawdbot-source.nix | head -n 1 | sed -E 's/.*"([^"]+)".*/\1/')
+          if [ -z "$rev" ]; then
+            echo "rev not found in nix/sources/clawdbot-source.nix" >&2
+            exit 1
+          fi
           echo "rev=$rev" >> "$GITHUB_OUTPUT"
 
       - name: Build image (aarch64-linux)
