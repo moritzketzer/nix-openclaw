@@ -812,6 +812,7 @@ let
   appDefaults = lib.foldl' (acc: item: lib.recursiveUpdate acc item.appDefaults) {} instanceConfigs;
 
   appDefaultsEnabled = lib.filterAttrs (_: inst: inst.appDefaults.enable) enabledInstances;
+  pluginPackagesAll = lib.flatten (map pluginPackagesFor (lib.attrNames enabledInstances));
   pluginStateDirsAll = lib.flatten (map pluginStateDirsFor (lib.attrNames enabledInstances));
 
   assertions = lib.flatten (lib.mapAttrsToList (name: inst: [
@@ -1059,6 +1060,12 @@ in {
       description = "Named Clawdbot instances (prod/test).";
     };
 
+    exposePluginPackages = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Add plugin packages to home.packages so CLIs are on PATH.";
+    };
+
     reloadScript = {
       enable = lib.mkOption {
         type = lib.types.bool;
@@ -1082,7 +1089,10 @@ in {
       }
     ] ++ documentsAssertions ++ skillAssertions ++ pluginAssertions ++ pluginSkillAssertions;
 
-    home.packages = lib.unique (map (item: item.package) instanceConfigs);
+    home.packages = lib.unique (
+      (map (item: item.package) instanceConfigs)
+      ++ (lib.optionals cfg.exposePluginPackages pluginPackagesAll)
+    );
 
     home.file =
       (lib.listToAttrs (map (item: item.homeFile) instanceConfigs))
