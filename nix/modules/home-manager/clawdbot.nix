@@ -703,6 +703,7 @@ let
       (lib.recursiveUpdate baseConfig (lib.recursiveUpdate (mkTelegramConfig inst) (mkRoutingConfig inst)))
       (lib.recursiveUpdate inst.config inst.configOverrides);
     configJson = builtins.toJSON mergedConfig;
+    configFile = pkgs.writeText "clawdbot-${name}.json" configJson;
     gatewayWrapper = pkgs.writeShellScriptBin "clawdbot-gateway-${name}" ''
       set -euo pipefail
 
@@ -732,6 +733,7 @@ let
       name = toRelative inst.configPath;
       value = { text = configJson; };
     };
+    configFile = configFile;
 
     dirs = [ inst.stateDir inst.workspaceDir (builtins.dirOf inst.logPath) ];
 
@@ -1133,6 +1135,11 @@ in {
     home.activation.clawdbotDirs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       /bin/mkdir -p ${lib.concatStringsSep " " (lib.concatMap (item: item.dirs) instanceConfigs)}
       ${lib.optionalString (pluginStateDirsAll != []) "/bin/mkdir -p ${lib.concatStringsSep " " pluginStateDirsAll}"}
+    '';
+
+    home.activation.clawdbotConfigFiles = lib.hm.dag.entryAfter [ "clawdbotDirs" ] ''
+      set -euo pipefail
+      ${lib.concatStringsSep "\n" (map (item: "/bin/ln -sfn ${item.configFile} ${item.configPath}") instanceConfigs)}
     '';
 
     home.activation.clawdbotPluginGuard = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
