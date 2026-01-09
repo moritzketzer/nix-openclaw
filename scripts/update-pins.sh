@@ -10,7 +10,7 @@ if ! command -v jq >/dev/null 2>&1; then
   exit 1
 fi
 
-latest_sha=$(git ls-remote https://github.com/clawdbot/clawdbot.git refs/heads/main | awk '{print $1}')
+latest_sha=$(git ls-remote https://github.com/clawdbot/clawdbot.git refs/heads/main | awk '{print $1}' || true)
 if [[ -z "$latest_sha" ]]; then
   echo "Failed to resolve clawdbot main SHA" >&2
   exit 1
@@ -38,14 +38,18 @@ fi
 perl -0pi -e "s|rev = \"[^\"]+\";|rev = \"${latest_sha}\";|" "$source_file"
 perl -0pi -e "s|hash = \"[^\"]+\";|hash = \"${source_hash}\";|" "$source_file"
 
-release_json=$(gh api /repos/clawdbot/clawdbot/releases?per_page=20)
+release_json=$(gh api /repos/clawdbot/clawdbot/releases?per_page=20 || true)
+if [[ -z "$release_json" ]]; then
+  echo "Failed to fetch release metadata" >&2
+  exit 1
+fi
 release_tag=$(printf '%s' "$release_json" | jq -r '[.[] | select(.assets[]?.name | test("^Clawdis-.*\\.zip$"))][0].tag_name // empty')
 if [[ -z "$release_tag" ]]; then
   echo "Failed to resolve a release tag with a Clawdis app asset" >&2
   exit 1
 fi
 
-app_url=$(printf '%s' "$release_json" | jq -r '[.[] | select(.assets[]?.name | test("^Clawdis-.*\\.zip$"))][0].assets[] | select(.name | test("^Clawdis-.*\\.zip$")) | .browser_download_url' | head -n 1)
+app_url=$(printf '%s' "$release_json" | jq -r '[.[] | select(.assets[]?.name | test("^Clawdis-.*\\.zip$"))][0].assets[] | select(.name | test("^Clawdis-.*\\.zip$")) | .browser_download_url' | head -n 1 || true)
 if [[ -z "$app_url" ]]; then
   echo "Failed to resolve Clawdis app asset URL from latest release" >&2
   exit 1
