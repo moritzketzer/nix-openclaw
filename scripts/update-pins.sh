@@ -18,7 +18,7 @@ fi
 
 source_url="https://github.com/clawdbot/clawdbot/archive/${latest_sha}.tar.gz"
 source_prefetch=$(
-  nix --extra-experimental-features "nix-command flakes" store prefetch-file --json "$source_url" 2>"/tmp/nix-prefetch-source.err" \
+  nix --extra-experimental-features "nix-command flakes" store prefetch-file --unpack --json "$source_url" 2>"/tmp/nix-prefetch-source.err" \
   || true
 )
 if [[ -z "$source_prefetch" ]]; then
@@ -52,7 +52,7 @@ if [[ -z "$app_url" ]]; then
 fi
 
 app_prefetch=$(
-  nix --extra-experimental-features "nix-command flakes" store prefetch-file --json "$app_url" 2>"/tmp/nix-prefetch-app.err" \
+  nix --extra-experimental-features "nix-command flakes" store prefetch-file --unpack --json "$app_url" 2>"/tmp/nix-prefetch-app.err" \
   || true
 )
 if [[ -z "$app_prefetch" ]]; then
