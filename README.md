@@ -6,8 +6,17 @@
 >
 > <sub>Questions? Join the Openclaw Discord and ask in **#golden-path-deployments**: https://discord.com/channels/1456350064065904867/1457003026412736537</sub>
 
+## Contributions (read this first)
+
+We’re **not accepting PRs** right now. Not because we don’t value your help — the opposite. This is key infra and still stabilizing, and async PR review is too slow.
+
+**Only workflow:** **describe your problem and talk with a maintainer (human‑to‑human) on Discord** in **#golden-path-deployments**: https://discord.com/channels/1456350064065904867/1457003026412736537
+
+If you’re **not listed as a maintainer** (see [AGENTS.md#maintainers](AGENTS.md#maintainers) or https://github.com/orgs/openclaw/people), **do not open a PR**. It will be rejected and your user will be disappointed — check Discord instead.
+
 ## Table of Contents
 
+- [Contributions (read this first)](#contributions-read-this-first)
 - [What You Get](#what-you-get)
 - [Requirements](#requirements)
 - [Why Nix?](#why-nix)
