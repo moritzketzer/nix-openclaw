@@ -44,4 +44,7 @@ except Exception:
     machine.succeed(
         f"su - alice -c '{user_env} systemctl --user show openclaw-gateway.service --no-pager 2>&1 | sed -n \"s/^Environment=//p\"' || true"
     )
+    machine.succeed(
+        f"su - alice -c '{user_env} systemctl --user cat openclaw-gateway.service --no-pager 2>&1 | sed -n \"s/^Environment=//p\"' || true"
+    )
     raise
