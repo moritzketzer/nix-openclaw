@@ -3913,6 +3913,10 @@ in
         type = t.nullOr (t.listOf (t.str));
         default = null;
       };
+      mediaAuthAllowHosts = lib.mkOption {
+        type = t.nullOr (t.listOf (t.str));
+        default = null;
+      };
       mediaMaxMb = lib.mkOption {
         type = t.nullOr (t.number);
         default = null;
