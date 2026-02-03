@@ -19,6 +19,7 @@ let
   linuxFirstParty = [
     "summarize"
     "gogcli"
+    "goplaces"
     "camsnap"
     "sonoscli"
     "sag"
