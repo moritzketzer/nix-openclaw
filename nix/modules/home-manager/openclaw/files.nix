@@ -73,8 +73,14 @@ let
                     recursive = true;
                   };
                 };
+          pluginEntriesFor = p:
+            map (skillPath: {
+              name = "${base}/${builtins.baseNameOf skillPath}";
+              value = { source = skillPath; recursive = true; };
+            }) p.skills;
+          pluginsForInstance = plugins.resolvedPluginsByInstance.${instName} or [];
         in
-          map entryFor cfg.skills;
+          (map entryFor cfg.skills) ++ (lib.flatten (map pluginEntriesFor pluginsForInstance));
     in
       lib.listToAttrs (lib.flatten (lib.mapAttrsToList entriesForInstance enabledInstances));
 

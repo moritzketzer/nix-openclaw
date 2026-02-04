@@ -220,7 +220,6 @@ in {
       // (lib.listToAttrs appInstalls)
       // files.documentsFiles
       // files.skillFiles
-      // plugins.pluginSkillsFiles
       // plugins.pluginConfigFiles
       // (lib.optionalAttrs cfg.reloadScript.enable {
         ".local/bin/openclaw-reload" = {
