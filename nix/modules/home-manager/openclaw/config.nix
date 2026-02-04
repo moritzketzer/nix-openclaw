@@ -85,7 +85,12 @@ let
 
       ${lib.concatStringsSep "\n" (map (entry: ''
         if [ -f "${entry.value}" ]; then
-          export ${entry.key}="$(cat "${entry.value}")"
+          rawValue="$(cat "${entry.value}")"
+          if [ "''${rawValue#${entry.key}=}" != "$rawValue" ]; then
+            export ${entry.key}="''${rawValue#${entry.key}=}"
+          else
+            export ${entry.key}="$rawValue"
+          fi
         else
           export ${entry.key}="${entry.value}"
         fi
