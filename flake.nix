@@ -1,5 +1,5 @@
 {
-  description = "nix-openclaw: declarative Openclaw packaging";
+  description = "nix-openclaw: declarative OpenClaw packaging";
 
   nixConfig = {
     extra-substituters = [ "https://cache.garnix.io" ];

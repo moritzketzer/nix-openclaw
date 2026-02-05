@@ -131,7 +131,7 @@ let
       let
         guardLine = file: ''
           if [ -e "${file}" ] && [ ! -L "${file}" ]; then
-            echo "Openclaw documents are managed by Nix. Please adopt ${file} into your documents directory and re-run." >&2
+            echo "OpenClaw documents are managed by Nix. Please adopt ${file} into your documents directory and re-run." >&2
             exit 1
           fi
         '';

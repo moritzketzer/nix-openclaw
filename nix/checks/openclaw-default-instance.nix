@@ -71,7 +71,7 @@ let
   };
 
   hasUnit = builtins.hasAttr "openclaw-gateway" eval.config.systemd.user.services;
-  check = if hasUnit then "ok" else throw "Default Openclaw instance missing systemd.unitName.";
+  check = if hasUnit then "ok" else throw "Default OpenClaw instance missing systemd.unitName.";
   checkKey = builtins.deepSeq check "ok";
 
 in

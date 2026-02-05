@@ -1,4 +1,4 @@
-# AGENTS.md — Openclaw Workspace
+# AGENTS.md — OpenClaw Workspace
 
 This file is managed by Nix. Update it in the repo, not in the workspace.
 

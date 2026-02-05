@@ -162,7 +162,7 @@ let
     systemdService = lib.optionalAttrs (pkgs.stdenv.hostPlatform.isLinux && inst.systemd.enable) {
       "${inst.systemd.unitName}" = {
         Unit = {
-          Description = "Openclaw gateway (${name})";
+          Description = "OpenClaw gateway (${name})";
         };
         Service = {
           ExecStart = "${gatewayWrapper}/bin/openclaw-gateway-${name} gateway --port ${toString inst.gatewayPort}";
@@ -197,7 +197,7 @@ in {
     assertions = [
       {
         assertion = lib.length (lib.attrNames appDefaultsEnabled) <= 1;
-        message = "Only one Openclaw instance may enable appDefaults.";
+        message = "Only one OpenClaw instance may enable appDefaults.";
       }
     ] ++ files.documentsAssertions ++ files.skillAssertions ++ plugins.pluginAssertions ++ plugins.pluginSkillAssertions;
 

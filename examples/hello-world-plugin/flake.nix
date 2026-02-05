@@ -1,5 +1,5 @@
 {
-  description = "Hello-world Openclaw plugin";
+  description = "Hello-world OpenClaw plugin";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

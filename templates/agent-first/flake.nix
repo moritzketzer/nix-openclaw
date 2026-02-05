@@ -1,5 +1,5 @@
 {
-  description = "Openclaw local";
+  description = "OpenClaw local";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -31,7 +31,7 @@
               # REPLACE: path to your managed documents directory
               documents = ./documents;
 
-              # Schema-typed Openclaw config (from upstream)
+              # Schema-typed OpenClaw config (from upstream)
               config = {
                 gateway = {
                   mode = "local";

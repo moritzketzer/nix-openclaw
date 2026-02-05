@@ -18,7 +18,7 @@ stdenvNoCC.mkDerivation {
   installPhase = "${../scripts/openclaw-app-install.sh}";
 
   meta = with lib; {
-    description = "Openclaw macOS app bundle";
+    description = "OpenClaw macOS app bundle";
     homepage = "https://github.com/openclaw/openclaw";
     license = licenses.mit;
     platforms = platforms.darwin;

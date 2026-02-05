@@ -15,7 +15,7 @@ buildEnv {
   pathsToLink = [ "/bin" ] ++ appLinks;
 
   meta = with lib; {
-    description = "Openclaw batteries-included bundle (gateway + app + tools)";
+    description = "OpenClaw batteries-included bundle (gateway + app + tools)";
     homepage = "https://github.com/openclaw/openclaw";
     license = licenses.mit;
     platforms = platforms.darwin ++ platforms.linux;

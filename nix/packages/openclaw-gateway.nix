@@ -94,7 +94,7 @@ stdenv.mkDerivation (finalAttrs: {
   dontPatchShebangs = true;
 
   meta = with lib; {
-    description = "Telegram-first AI gateway (Openclaw)";
+    description = "Telegram-first AI gateway (OpenClaw)";
     homepage = "https://github.com/openclaw/openclaw";
     license = licenses.mit;
     platforms = platforms.darwin ++ platforms.linux;

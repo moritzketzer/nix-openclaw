@@ -64,7 +64,7 @@ const parsed = JSON.parse(raw);
 
 const result = validateConfigObject(parsed);
 if (!result.ok) {
-  console.error("Openclaw config validation failed:");
+  console.error("OpenClaw config validation failed:");
   for (const issue of result.issues ?? []) {
     const pathLabel = issue.path ? ` ${issue.path}` : "";
     console.error(`- ${pathLabel}: ${issue.message}`);

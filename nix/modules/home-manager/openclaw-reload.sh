@@ -5,7 +5,7 @@ usage() {
   cat <<'EOF'
 Usage: openclaw-reload [test|prod|both]
 
-Re-render Openclaw config via Home Manager (no sudo) and restart gateway(s).
+Re-render OpenClaw config via Home Manager (no sudo) and restart gateway(s).
 
 Defaults to: test
 EOF

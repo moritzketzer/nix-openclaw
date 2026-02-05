@@ -1,10 +1,10 @@
 # nix-openclaw
 
-> Declarative Openclaw. Bulletproof by default.
+> Declarative OpenClaw. Bulletproof by default.
 >
 > macOS + Linux (headless). Windows is out of scope for now.
 >
-> <sub>Questions? Join the Openclaw Discord and ask in **#golden-path-deployments**: https://discord.com/channels/1456350064065904867/1457003026412736537</sub>
+> <sub>Questions? Join the OpenClaw Discord and ask in **#golden-path-deployments**: https://discord.com/channels/1456350064065904867/1457003026412736537</sub>
 
 ## Contributions (read this first)
 
@@ -117,7 +117,7 @@ I want to set up nix-openclaw on my machine (macOS or Linux).
 Repository: github:openclaw/nix-openclaw
 
 What nix-openclaw is:
-- Batteries-included Nix package for Openclaw (AI assistant gateway)
+- Batteries-included Nix package for OpenClaw (AI assistant gateway)
 - Installs gateway + tools everywhere; macOS app only on macOS
 - Runs as a launchd service on macOS, systemd user service on Linux
 
@@ -140,12 +140,12 @@ My setup:
 Reference the README and templates/agent-first/flake.nix in the repo for the module options.
 ```
 
-Your agent will install Nix, create your config, and get Openclaw running. You just answer its questions.
+Your agent will install Nix, create your config, and get OpenClaw running. You just answer its questions.
 
 **What happens next:**
 1. Your agent sets everything up and runs `home-manager switch`
 2. You message your Telegram bot for the first time
-3. Openclaw runs its **bootstrap ritual** - it asks you playful questions: *"Who am I? What am I? Who are you?"* - to learn its identity and yours
+3. OpenClaw runs its **bootstrap ritual** - it asks you playful questions: *"Who am I? What am I? Who are you?"* - to learn its identity and yours
 4. Once you've named it and introduced yourself, the bootstrap is done. You're up and running.
 
 <details>
@@ -212,7 +212,7 @@ You (Telegram/Discord) --> Gateway --> Tools --> Your machine does things
 1. **CLI tools** - actual programs that do stuff (take screenshots, control Spotify, transcribe audio)
 2. **Skills** - markdown files that teach the AI *how* to use those tools
 
-When you enable a plugin, Nix installs the tools and wires up the skills to Openclaw automatically - the gateway learns what it can do.
+When you enable a plugin, Nix installs the tools and wires up the skills to OpenClaw automatically - the gateway learns what it can do.
 
 **Skills**: Instructions for the AI. A skill file says "when the user wants X, run this command." The AI reads these to know what it can do.
 
@@ -238,9 +238,9 @@ All state lives in `~/.openclaw/`. Logs at `/tmp/openclaw/openclaw-gateway.log`.
 
 ## Plugins
 
-> **Note:** Complete the [Quick Start](#quick-start) first to get Openclaw running. Then come back here to add plugins.
+> **Note:** Complete the [Quick Start](#quick-start) first to get OpenClaw running. Then come back here to add plugins.
 
-Plugins extend what Openclaw can do. Each plugin bundles tools and teaches the AI how to use them.
+Plugins extend what OpenClaw can do. Each plugin bundles tools and teaches the AI how to use them.
 
 ### First-party plugins
 
@@ -324,7 +324,7 @@ customPlugins = [
 <details>
 <summary><strong>For plugin developers</strong></summary>
 
-Want to make your tool available as a Openclaw plugin? Here's the contract.
+Want to make your tool available as a OpenClaw plugin? Here's the contract.
 
 **Minimum structure:**
 
@@ -448,7 +448,7 @@ Deliverables: flake output, env overrides, AGENTS.md, skill update.
 >
 > **Breaking change:** Nix now only emits config from `programs.openclaw.config` / `instances.<name>.config` (schema-typed). Legacy provider/routing/agent options are removed.
 
-### What Openclaw needs (minimum)
+### What OpenClaw needs (minimum)
 
 1. **Telegram bot token file** - create via [@BotFather](https://t.me/BotFather), set `channels.telegram.tokenFile`
 2. **Your Telegram user ID** - get from [@userinfobot](https://t.me/userinfobot), set `channels.telegram.allowFrom`
@@ -756,7 +756,7 @@ home-manager switch --rollback  # revert
 
 ## Philosophy
 
-The Zen of ~~Python~~ Openclaw, ~~by~~ shamelessly stolen from Tim Peters
+The Zen of ~~Python~~ OpenClaw, ~~by~~ shamelessly stolen from Tim Peters
 
 Beautiful is better than ugly.
 Explicit is better than implicit.
@@ -782,7 +782,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
 ## Upstream
 
-Wraps [Openclaw](https://github.com/openclaw/openclaw) by Peter Steinberger.
+Wraps [OpenClaw](https://github.com/openclaw/openclaw) by Peter Steinberger.
 
 ## License
 

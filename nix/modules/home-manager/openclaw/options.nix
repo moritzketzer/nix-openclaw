@@ -44,12 +44,12 @@ let
 
 in {
   options.programs.openclaw = {
-    enable = lib.mkEnableOption "Openclaw (batteries-included)";
+    enable = lib.mkEnableOption "OpenClaw (batteries-included)";
 
     package = lib.mkOption {
       type = lib.types.package;
       default = pkgs.openclaw;
-      description = "Openclaw batteries-included package.";
+      description = "OpenClaw batteries-included package.";
     };
 
     toolNames = lib.mkOption {
@@ -67,7 +67,7 @@ in {
     appPackage = lib.mkOption {
       type = lib.types.nullOr lib.types.package;
       default = null;
-      description = "Optional Openclaw app package (defaults to package if unset).";
+      description = "Optional OpenClaw app package (defaults to package if unset).";
     };
 
     installApp = lib.mkOption {
@@ -79,13 +79,13 @@ in {
     stateDir = lib.mkOption {
       type = lib.types.str;
       default = "${openclawLib.homeDir}/.openclaw";
-      description = "State directory for Openclaw (logs, sessions, config).";
+      description = "State directory for OpenClaw (logs, sessions, config).";
     };
 
     workspaceDir = lib.mkOption {
       type = lib.types.str;
       default = "${openclawLib.homeDir}/.openclaw/workspace";
-      description = "Workspace directory for Openclaw agent skills.";
+      description = "Workspace directory for OpenClaw agent skills.";
     };
 
     documents = lib.mkOption {
@@ -148,31 +148,31 @@ in {
     launchd.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "Run Openclaw gateway via launchd (macOS).";
+      description = "Run OpenClaw gateway via launchd (macOS).";
     };
 
     launchd.label = lib.mkOption {
       type = lib.types.str;
       default = "com.steipete.openclaw.gateway";
-      description = "launchd label for the default Openclaw instance.";
+      description = "launchd label for the default OpenClaw instance.";
     };
 
     systemd.enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "Run Openclaw gateway via systemd user service (Linux).";
+      description = "Run OpenClaw gateway via systemd user service (Linux).";
     };
 
     systemd.unitName = lib.mkOption {
       type = lib.types.str;
       default = "openclaw-gateway";
-      description = "systemd user service unit name for the default Openclaw instance.";
+      description = "systemd user service unit name for the default OpenClaw instance.";
     };
 
     instances = lib.mkOption {
       type = lib.types.attrsOf (lib.types.submodule instanceModule);
       default = {};
-      description = "Named Openclaw instances (prod/test).";
+      description = "Named OpenClaw instances (prod/test).";
     };
 
     exposePluginPackages = lib.mkOption {
@@ -192,7 +192,7 @@ in {
     config = lib.mkOption {
       type = lib.types.submodule { options = openclawLib.generatedConfigOptions; };
       default = {};
-      description = "Openclaw config (schema-typed).";
+      description = "OpenClaw config (schema-typed).";
     };
   };
 }

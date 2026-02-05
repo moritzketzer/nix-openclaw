@@ -49,7 +49,7 @@ Defaults:
 - NEVER send any message (iMessage, email, SMS, etc.) without explicit user confirmation:
   - Always show the full message text and ask: “I’m going to send this: <message>. Send? (y/n)”
 
-Openclaw packaging:
+OpenClaw packaging:
 - The gateway package must include Control UI assets (run `pnpm ui:build` in the Nix build).
 
 Golden path for pins (yolo + manual bumps):
@@ -70,7 +70,7 @@ CI polling (hard rule):
 
 Philosophy:
 
-The Zen of ~~Python~~ Openclaw, ~~by~~ shamelessly stolen from Tim Peters
+The Zen of ~~Python~~ OpenClaw, ~~by~~ shamelessly stolen from Tim Peters
 
 Beautiful is better than ugly.  
 Explicit is better than implicit.  

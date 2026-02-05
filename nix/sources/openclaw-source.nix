@@ -1,4 +1,4 @@
-# Pinned Openclaw source for nix-openclaw
+# Pinned OpenClaw source for nix-openclaw
 {
   owner = "openclaw";
   repo = "openclaw";

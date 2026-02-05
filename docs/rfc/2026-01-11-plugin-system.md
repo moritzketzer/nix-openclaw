@@ -1,4 +1,4 @@
-# RFC: Openclaw Plugin System — The Golden Path
+# RFC: OpenClaw Plugin System — The Golden Path
 
 - Date: 2026-01-11
 - Status: Draft
