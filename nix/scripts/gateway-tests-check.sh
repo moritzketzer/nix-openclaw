@@ -13,7 +13,6 @@ export HOME="$(mktemp -d)"
 export TMPDIR="${HOME}/tmp"
 mkdir -p "$TMPDIR"
 export OPENCLAW_LOG_DIR="${TMPDIR}/openclaw-logs"
-export MOLTBOT_LOG_PATH="${OPENCLAW_LOG_DIR}/openclaw-gateway.log"
 mkdir -p "$OPENCLAW_LOG_DIR"
 mkdir -p /tmp/openclaw || true
 chmod 700 /tmp/openclaw || true

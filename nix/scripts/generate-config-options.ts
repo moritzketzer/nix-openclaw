@@ -17,9 +17,9 @@ const schemaUrl = pathToFileURL(schemaPath).href;
 
 const loadSchema = async (): Promise<Record<string, unknown>> => {
   const mod = await import(schemaUrl);
-  const schema = mod.OpenClawSchema ?? mod.MoltbotSchema;
+  const schema = mod.OpenClawSchema;
   if (!schema || typeof schema.toJSONSchema !== "function") {
-    console.error(`OpenClawSchema/MoltbotSchema not found at ${schemaPath}`);
+    console.error(`OpenClawSchema not found at ${schemaPath}`);
     process.exit(1);
   }
   return schema.toJSONSchema({

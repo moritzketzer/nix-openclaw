@@ -154,14 +154,6 @@ let
             OPENCLAW_STATE_DIR = inst.stateDir;
             OPENCLAW_IMAGE_BACKEND = "sips";
             OPENCLAW_NIX_MODE = "1";
-            MOLTBOT_CONFIG_PATH = inst.configPath;
-            MOLTBOT_STATE_DIR = inst.stateDir;
-            MOLTBOT_IMAGE_BACKEND = "sips";
-            MOLTBOT_NIX_MODE = "1";
-            CLAWDBOT_CONFIG_PATH = inst.configPath;
-            CLAWDBOT_STATE_DIR = inst.stateDir;
-            CLAWDBOT_IMAGE_BACKEND = "sips";
-            CLAWDBOT_NIX_MODE = "1";
           };
         };
       };
@@ -182,12 +174,6 @@ let
             "OPENCLAW_CONFIG_PATH=${inst.configPath}"
             "OPENCLAW_STATE_DIR=${inst.stateDir}"
             "OPENCLAW_NIX_MODE=1"
-            "MOLTBOT_CONFIG_PATH=${inst.configPath}"
-            "MOLTBOT_STATE_DIR=${inst.stateDir}"
-            "MOLTBOT_NIX_MODE=1"
-            "CLAWDBOT_CONFIG_PATH=${inst.configPath}"
-            "CLAWDBOT_STATE_DIR=${inst.stateDir}"
-            "CLAWDBOT_NIX_MODE=1"
           ];
           StandardOutput = "append:${inst.logPath}";
           StandardError = "append:${inst.logPath}";
