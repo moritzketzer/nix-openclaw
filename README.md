@@ -16,6 +16,8 @@ If you’re **not listed as a maintainer** (see [AGENTS.md#maintainers](AGENTS.m
 
 ## Table of Contents
 
+- [Golden Paths](#golden-paths)
+
 - [Contributions (read this first)](#contributions-read-this-first)
 - [What You Get](#what-you-get)
 - [Requirements](#requirements)
@@ -28,6 +30,16 @@ If you’re **not listed as a maintainer** (see [AGENTS.md#maintainers](AGENTS.m
 - [Packaging & Updates](#packaging--updates)
 - [Reference](#reference)
 - [Philosophy](#philosophy)
+
+---
+
+## Golden Paths
+
+**There should be one — and preferably only one — obvious way to deploy.**
+
+Pick a Golden Path, then follow the docs:
+
+- [docs/golden-paths.md](docs/golden-paths.md)
 
 ---
 
