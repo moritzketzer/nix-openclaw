@@ -108,6 +108,58 @@ in
           type = t.nullOr (t.oneOf [ (t.enum [ "json" ]) (t.enum [ "text" ]) (t.enum [ "jsonl" ]) ]);
           default = null;
         };
+        reliability = lib.mkOption {
+          type = t.nullOr (t.submodule { options = {
+          watchdog = lib.mkOption {
+            type = t.nullOr (t.submodule { options = {
+            fresh = lib.mkOption {
+              type = t.nullOr (t.submodule { options = {
+              maxMs = lib.mkOption {
+                type = t.nullOr (t.int);
+                default = null;
+              };
+              minMs = lib.mkOption {
+                type = t.nullOr (t.int);
+                default = null;
+              };
+              noOutputTimeoutMs = lib.mkOption {
+                type = t.nullOr (t.int);
+                default = null;
+              };
+              noOutputTimeoutRatio = lib.mkOption {
+                type = t.nullOr (t.number);
+                default = null;
+              };
+            }; });
+              default = null;
+            };
+            resume = lib.mkOption {
+              type = t.nullOr (t.submodule { options = {
+              maxMs = lib.mkOption {
+                type = t.nullOr (t.int);
+                default = null;
+              };
+              minMs = lib.mkOption {
+                type = t.nullOr (t.int);
+                default = null;
+              };
+              noOutputTimeoutMs = lib.mkOption {
+                type = t.nullOr (t.int);
+                default = null;
+              };
+              noOutputTimeoutRatio = lib.mkOption {
+                type = t.nullOr (t.number);
+                default = null;
+              };
+            }; });
+              default = null;
+            };
+          }; });
+            default = null;
+          };
+        }; });
+          default = null;
+        };
         resumeArgs = lib.mkOption {
           type = t.nullOr (t.listOf (t.str));
           default = null;
@@ -7088,6 +7140,14 @@ in
       type = t.nullOr (t.str);
       default = null;
     };
+    webhook = lib.mkOption {
+      type = t.nullOr (t.str);
+      default = null;
+    };
+    webhookToken = lib.mkOption {
+      type = t.nullOr (t.str);
+      default = null;
+    };
   }; });
     default = null;
   };
@@ -9956,6 +10016,15 @@ in
           default = null;
         };
       }; });
+        default = null;
+      };
+    }; });
+      default = null;
+    };
+    sessions = lib.mkOption {
+      type = t.nullOr (t.submodule { options = {
+      visibility = lib.mkOption {
+        type = t.nullOr (t.enum [ "self" "tree" "agent" "all" ]);
         default = null;
       };
     }; });
