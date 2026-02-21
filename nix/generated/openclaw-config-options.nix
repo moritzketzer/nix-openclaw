@@ -5258,6 +5258,10 @@ in
     }; });
       default = null;
     };
+    modelByChannel = lib.mkOption {
+      type = t.nullOr (t.attrsOf (t.attrsOf (t.str)));
+      default = null;
+    };
     msteams = lib.mkOption {
       type = t.nullOr (t.submodule { options = {
       allowFrom = lib.mkOption {
