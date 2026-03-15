@@ -380,6 +380,10 @@ in
           type = t.nullOr (t.int);
           default = null;
         };
+        timeoutSeconds = lib.mkOption {
+          type = t.nullOr (t.int);
+          default = null;
+        };
       }; });
         default = null;
       };
