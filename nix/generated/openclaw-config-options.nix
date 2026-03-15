@@ -5143,6 +5143,10 @@ in
           type = t.nullOr (t.bool);
           default = null;
         };
+        appPrincipal = lib.mkOption {
+          type = t.nullOr (t.str);
+          default = null;
+        };
         audience = lib.mkOption {
           type = t.nullOr (t.str);
           default = null;
@@ -5402,6 +5406,10 @@ in
       };
       allowBots = lib.mkOption {
         type = t.nullOr (t.bool);
+        default = null;
+      };
+      appPrincipal = lib.mkOption {
+        type = t.nullOr (t.str);
         default = null;
       };
       audience = lib.mkOption {
