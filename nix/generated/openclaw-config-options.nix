@@ -8575,6 +8575,10 @@ in
             type = t.nullOr (t.bool);
             default = null;
           };
+          editForumTopic = lib.mkOption {
+            type = t.nullOr (t.bool);
+            default = null;
+          };
           editMessage = lib.mkOption {
             type = t.nullOr (t.bool);
             default = null;
@@ -9201,6 +9205,10 @@ in
           default = null;
         };
         deleteMessage = lib.mkOption {
+          type = t.nullOr (t.bool);
+          default = null;
+        };
+        editForumTopic = lib.mkOption {
           type = t.nullOr (t.bool);
           default = null;
         };
