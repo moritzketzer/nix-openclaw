@@ -2803,14 +2803,10 @@ in
         type = t.str;
       };
       driver = lib.mkOption {
-        type = t.nullOr (t.oneOf [ (t.enum [ "openclaw" ]) (t.enum [ "clawd" ]) (t.enum [ "extension" ]) (t.enum [ "existing-session" ]) ]);
+        type = t.nullOr (t.oneOf [ (t.enum [ "openclaw" ]) (t.enum [ "clawd" ]) (t.enum [ "existing-session" ]) ]);
         default = null;
       };
     }; }));
-      default = null;
-    };
-    relayBindHost = lib.mkOption {
-      type = t.nullOr (t.oneOf [ (t.str) (t.str) ]);
       default = null;
     };
     remoteCdpHandshakeTimeoutMs = lib.mkOption {
@@ -12813,6 +12809,18 @@ in
         type = t.nullOr (t.str);
         default = null;
       };
+      marketplaceName = lib.mkOption {
+        type = t.nullOr (t.str);
+        default = null;
+      };
+      marketplacePlugin = lib.mkOption {
+        type = t.nullOr (t.str);
+        default = null;
+      };
+      marketplaceSource = lib.mkOption {
+        type = t.nullOr (t.str);
+        default = null;
+      };
       resolvedAt = lib.mkOption {
         type = t.nullOr (t.str);
         default = null;
@@ -12834,7 +12842,7 @@ in
         default = null;
       };
       source = lib.mkOption {
-        type = t.oneOf [ (t.enum [ "npm" ]) (t.enum [ "archive" ]) (t.enum [ "path" ]) ];
+        type = t.oneOf [ (t.oneOf [ (t.enum [ "npm" ]) (t.enum [ "archive" ]) (t.enum [ "path" ]) ]) (t.enum [ "marketplace" ]) ];
       };
       sourcePath = lib.mkOption {
         type = t.nullOr (t.str);
