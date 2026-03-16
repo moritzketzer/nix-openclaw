@@ -2806,6 +2806,10 @@ in
         type = t.nullOr (t.oneOf [ (t.enum [ "openclaw" ]) (t.enum [ "clawd" ]) (t.enum [ "existing-session" ]) ]);
         default = null;
       };
+      userDataDir = lib.mkOption {
+        type = t.nullOr (t.str);
+        default = null;
+      };
     }; }));
       default = null;
     };
@@ -9368,6 +9372,10 @@ in
         }; });
           default = null;
         };
+        silentErrorReplies = lib.mkOption {
+          type = t.nullOr (t.bool);
+          default = null;
+        };
         streamMode = lib.mkOption {
           type = t.nullOr (t.enum [ "off" "partial" "block" ]);
           default = null;
@@ -10003,6 +10011,10 @@ in
           default = null;
         };
       }; });
+        default = null;
+      };
+      silentErrorReplies = lib.mkOption {
+        type = t.nullOr (t.bool);
         default = null;
       };
       streamMode = lib.mkOption {
