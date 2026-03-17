@@ -10689,6 +10689,10 @@ in
       type = t.nullOr (t.bool);
       default = null;
     };
+    mcp = lib.mkOption {
+      type = t.nullOr (t.bool);
+      default = null;
+    };
     native = lib.mkOption {
       type = t.nullOr (t.oneOf [ (t.bool) (t.enum [ "auto" ]) ]);
       default = null;
@@ -11921,6 +11925,41 @@ in
     };
     redactSensitive = lib.mkOption {
       type = t.nullOr (t.oneOf [ (t.enum [ "off" ]) (t.enum [ "tools" ]) ]);
+      default = null;
+    };
+  }; });
+    default = null;
+  };
+
+  mcp = lib.mkOption {
+    type = t.nullOr (t.submodule { options = {
+    servers = lib.mkOption {
+      type = t.nullOr (t.attrsOf (t.submodule { options = {
+      args = lib.mkOption {
+        type = t.nullOr (t.listOf (t.str));
+        default = null;
+      };
+      command = lib.mkOption {
+        type = t.nullOr (t.str);
+        default = null;
+      };
+      cwd = lib.mkOption {
+        type = t.nullOr (t.str);
+        default = null;
+      };
+      env = lib.mkOption {
+        type = t.nullOr (t.attrsOf (t.oneOf [ (t.str) (t.number) (t.bool) ]));
+        default = null;
+      };
+      url = lib.mkOption {
+        type = t.nullOr (t.str);
+        default = null;
+      };
+      workingDirectory = lib.mkOption {
+        type = t.nullOr (t.str);
+        default = null;
+      };
+    }; }));
       default = null;
     };
   }; });
