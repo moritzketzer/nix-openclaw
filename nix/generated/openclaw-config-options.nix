@@ -12995,6 +12995,19 @@ in
       }; });
         default = null;
       };
+      subagent = lib.mkOption {
+        type = t.nullOr (t.submodule { options = {
+        allowModelOverride = lib.mkOption {
+          type = t.nullOr (t.bool);
+          default = null;
+        };
+        allowedModels = lib.mkOption {
+          type = t.nullOr (t.listOf (t.str));
+          default = null;
+        };
+      }; });
+        default = null;
+      };
     }; }));
       default = null;
     };
