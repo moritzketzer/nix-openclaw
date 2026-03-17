@@ -579,6 +579,19 @@ in
       }; });
         default = null;
       };
+      imageGenerationModel = lib.mkOption {
+        type = t.nullOr (t.oneOf [ (t.str) (t.submodule { options = {
+        fallbacks = lib.mkOption {
+          type = t.nullOr (t.listOf (t.str));
+          default = null;
+        };
+        primary = lib.mkOption {
+          type = t.nullOr (t.str);
+          default = null;
+        };
+      }; }) ]);
+        default = null;
+      };
       imageMaxDimensionPx = lib.mkOption {
         type = t.nullOr (t.int);
         default = null;
@@ -10711,6 +10724,10 @@ in
     };
     ownerDisplaySecret = lib.mkOption {
       type = t.nullOr (t.str);
+      default = null;
+    };
+    plugins = lib.mkOption {
+      type = t.nullOr (t.bool);
       default = null;
     };
     restart = lib.mkOption {
